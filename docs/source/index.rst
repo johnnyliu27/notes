@@ -1,9 +1,9 @@
 .. Notes documentation master file, created by
-   sphinx-quickstart on Thu Dec 28 21:48:48 2017.
+   sphinx-quickstart on Thu Dec 28 22:17:24 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Notes!
+My Notes
 =================================
 
 .. toctree::
