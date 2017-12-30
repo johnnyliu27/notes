@@ -6,15 +6,16 @@
 My Notes
 =================================
 
+Contents
+---------
+
+.. toctree::
+   :hidden:
+
+   Contents <self>
+
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-
-
-Contents
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   diffusion
