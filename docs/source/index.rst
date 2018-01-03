@@ -18,5 +18,6 @@ Contents
 .. toctree::
    :maxdepth: 2
    :glob:
-   
-   diffusion
+
+   sec_nde
+   sec_nte
