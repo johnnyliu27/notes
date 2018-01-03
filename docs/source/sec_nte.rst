@@ -5,8 +5,8 @@ Neutron Transport Equation
 General form
 ------------
 
-Based on the neutron balance, the neutron transport equation (NTE) can
-be summarized in a straight-forward view as
+Based on neutrons' balance, the neutron transport equation (NTE) can
+be summarized in a straight-forward relation as
 :math:`R_{change} = R_{production} - R_{destruction}`, or equivalently
 in the more common expression,
 
@@ -30,9 +30,11 @@ thus NTE can be re-written as
 
 .. math::
 
+  \boxed{
    \frac{1}{v} \frac{\partial \psi(\vec{r}, E, \vec{\Omega}, t)}{\partial t} + \vec{\Omega} \cdot \nabla \psi(\vec{r}, E, \vec{\Omega}, t) 
        + \Sigma_t(\vec{r}, E) \psi(\vec{r}, E, \vec{\Omega}, t) = 
        Q(\vec{r}, E, \vec{\Omega}, t)
+  }
 
 It should be mentioned here that across this document, the symbol
 :math:`\psi` will be used for representing angular flux, and
@@ -53,22 +55,24 @@ source, they can be expressed as
 .. math::
 
    \begin{aligned}
-       & Q_f(\vec{r}, E, \vec{\Omega}, t) = \frac{\chi(E)}{4 \pi}  \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E, \vec{\Omega}, t) \nu(E') \Sigma_f(\vec{r}, E') \big] dE' d\vec{\Omega}
+       & Q_f(\vec{r}, E, \vec{\Omega}, t) = \frac{\chi(E)}{4 \pi}  \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega}, t) \nu(E') \Sigma_f(\vec{r}, E') \big] dE' d\vec{\Omega}
        \\
-       & Q_s(\vec{r}, E, \vec{\Omega}, t) = \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E, \vec{\Omega}, t) \Sigma_s(\vec{r}, E' \rightarrow E, \vec{\Omega'} \rightarrow \vec{\Omega}) \big] dE' d\vec{\Omega}
+       & Q_s(\vec{r}, E, \vec{\Omega}, t) = \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega}, t) \Sigma_s(\vec{r}, E' \rightarrow E, \vec{\Omega'} \rightarrow \vec{\Omega}) \big] dE' d\vec{\Omega}
        \end{aligned}
 
 Steady State NTE
 ----------------
 
-In steady state, the neutrons’ number density changing rate
+In steady state, the changing rate of neutron number density 
 :math:`R_{change}` is equal to zero, thus
 :math:`\frac{\partial \psi(\vec{r}, E, \vec{\Omega}, t)}{\partial t} = 0`.
-Thus NTE becomes
+So in steady state, NTE becomes
 
 .. math::
 
-   \vec{\Omega} \cdot \nabla \psi(\vec{r}, E, \vec{\Omega}) 
+  \boxed{
+      \vec{\Omega} \cdot \nabla \psi(\vec{r}, E, \vec{\Omega}) 
        + \Sigma_t(\vec{r}, E) \psi(\vec{r}, E, \vec{\Omega}) = 
        Q(\vec{r}, E, \vec{\Omega})
+  }
 

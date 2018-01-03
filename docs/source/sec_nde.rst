@@ -144,4 +144,4 @@ non-multiplying and multiplying systems can be summarized as
 
 To solve them, first we need to write out the explicit expression of the
 Laplace operator :math:`\nabla^2` in different coordinate systems, which
-can be found in Appendix A of the textbook used for course 22.05 or other on-line source such as Wikipedia.
+can be found in Appendix A of the textbook used for course 22.05.
