@@ -39,7 +39,7 @@ thus NTE can be re-written as
 It should be mentioned here that across this document, the symbol
 :math:`\psi` will be used for representing angular flux, and
 :math:`\phi` for scalar flux, with
-:math:`\phi(\vec{r}, E, \vec{\Omega}, t) = \int_{4\pi} \psi(\vec{r}, E, \vec{\Omega}, t) d\vec{\Omega}`.
+:math:`\phi(\vec{r}, E, t) = \int_{4\pi} \psi(\vec{r}, E, \vec{\Omega}, t) d\vec{\Omega}`.
 
 The source term :math:`Q(\vec{r}, E, \vec{\Omega}, t)` is often composed
 of three contributions: fission source :math:`Q_f`, scattering source
