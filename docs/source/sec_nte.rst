@@ -55,9 +55,9 @@ source, they can be expressed as
 .. math::
 
    \begin{aligned}
-       & Q_f(\vec{r}, E, \vec{\Omega}, t) = \frac{\chi(E)}{4 \pi}  \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega}, t) \nu(E') \Sigma_f(\vec{r}, E') \big] dE' d\vec{\Omega'}
+       & Q_f(\vec{r}, E, \vec{\Omega}, t) = \frac{\chi(E)}{4 \pi}  \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega'}, t) \nu(E') \Sigma_f(\vec{r}, E') \big] dE' d\vec{\Omega'}
        \\
-       & Q_s(\vec{r}, E, \vec{\Omega}, t) = \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega}, t) \Sigma_s(\vec{r}, E' \rightarrow E, \vec{\Omega'} \rightarrow \vec{\Omega}) \big] dE' d\vec{\Omega'}
+       & Q_s(\vec{r}, E, \vec{\Omega}, t) = \int_{4\pi} \int_{0}^{\infty} \big[ \psi(\vec{r}, E', \vec{\Omega'}, t) \Sigma_s(\vec{r}, E' \rightarrow E, \vec{\Omega'} \rightarrow \vec{\Omega}) \big] dE' d\vec{\Omega'}
        \end{aligned}
 
 Steady State NTE
