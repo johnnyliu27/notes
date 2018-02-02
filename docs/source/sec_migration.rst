@@ -194,7 +194,7 @@ Neutron Diffusion with 2 Regions
 
 Now let’s go back to NDE again for the two-region spherical geometry.
 The sphere is solid but has two pure-absorber regions with
-:math:`\Sigma_{ai}, D_{i}` for :math:`0 \leq r \leq R_0` and
+:math:`\Sigma_{ai}, D_{i}` for :math:`0 < r \leq R_0` and
 :math:`\Sigma_{ao}, D_{o}` for :math:`r > R_0`. The 1D NDE in spherical
 coordinates is
 
@@ -220,3 +220,49 @@ For the inner and outer regions, we will have :math:`M_i^2` and
                C_1 e^{-r/M_i} + C_2 e^{r/M_i}      & r \leq R_0    \\
                C_3 e^{-r/M_o} + C_4 e^{r/M_o}      & r > R_0   \\
        \end{cases}
+
+So according to :math:`u(r) = \phi(r) r`, the solution expression for
+flux is
+
+.. math::
+
+   \label{}
+       \phi(r) = 
+        \begin{cases}
+               C_1 \frac{e^{-r/M_i}}{r} + C_2 \frac{e^{r/M_i}}{r}  & r \leq R_0 \quad (\phi_i(r))  \\
+               C_3 \frac{e^{-r/M_o}}{r}  + C_4 \frac{e^{r/M_o}}{r}     & r > R_0 \quad (\phi_o(r)) \\
+       \end{cases}
+
+There are 4 boundary conditions for solving for the 4 constants in the
+expression. First, when :math:`r \rightarrow \infty`, :math:`\phi(r)`
+must be finite value, thus we can get :math:`\boxed{C_4 = 0}`.
+
+Secondly, since the source is located in the center of the sphere
+(:math:`r=0`), there will be
+
+.. math:: \lim_{r \to 0} 4 \pi r^2 J(r) = S
+
+By using :math:`J(r) = -D \frac{d \phi(r)}{dr}`, we can get
+:math:`\boxed{ C_1 + C_2 = \frac{S}{4 \pi D_i} }`.
+
+The other two boundary conditions are the continuity of flux and current
+at the interface of two regions (:math:`r = R_0`).
+
+.. math::
+
+   \begin{aligned}
+           \phi_i(r) \rvert_{r = R_0} &= \phi_o\rvert_{r = R_0} \\
+           - D_i \frac{d \phi_i(r)}{dr} \Bigg\rvert_{r = R_0} &= - D_o \frac{d \phi_o(r)}{dr} \Bigg\rvert_{r = R_0}
+       \end{aligned}
+
+Plugging in the expression of :math:`\phi_i(r)` and :math:`\phi_o(r)`,
+they become
+
+.. math::
+
+   \begin{aligned}
+           C_1 e^{-R_0/M_i} + C_2 e^{R_0/M_i}  &= C_3 e^{-R_0/M_o} \\
+           D_i \Big[ \frac{R_0}{M_i} \big(C_1 e^{-R_0 / M_i} - C_2 e^{R_0/M_i} \big) + 
+           \big(C_1 e^{-R_0 / M_i} + C_2 e^{R_0/M_i} \big) \Big] &=
+           D_o \big( \frac{R_0}{M_o} + 1 \big) C_3 e^{-R_0 / M_o}
+       \end{aligned}
