@@ -57,8 +57,8 @@ compute the second moment of :math:`r` as
 So we can get the relationship of
 :math:`M^2 = \frac{1}{6} \overline{r^2}`.
 
-Pure Absorber with Fixed Point Source
--------------------------------------
+Neutron Transport in Pure Absorber with Fixed Point Source
+----------------------------------------------------------
 
 Exponential Decay Model
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,19 +66,22 @@ Exponential Decay Model
 In pure absorber, the length each neutron traveled before absorption
 will just be the same result as exponential decay model, in which
 
-.. math:: p(r) dr = e ^ {-\Sigma_a r} \Sigma_a dr
+.. math:: 
+   :label: eq::probability
+
+   p(r) dr = e ^ {-\Sigma_a r} \Sigma_a dr
 
 Then in this case the second moment of :math:`r` as
 
 .. math::
    :label: eq::ExpoDecayModel
-   
+
        \overline{r^2} = \int_{0}^{\infty} r^2 p(r) dr 
                       = \Sigma_a \int_{0}^{\infty} r^2 e ^ {-\Sigma_a r} dr
                       = \frac{2}{\Sigma_a^2}
 
-Neutron Transport in Simple 1D Sphere
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Simple 1D Sphere
+~~~~~~~~~~~~~~~~
 
 Without solving the NTE, based on the geometrical and exponential decay
 of the scalar neutron flux in simple 1D homogeneous sphere filled with
@@ -106,8 +109,8 @@ Then repeating the same process of computing :math:`p(r)` and
 This just shows the same result as the exponential decay model in
 Equation :eq:`eq::ExpoDecayModel`.
 
-Neutron Transport in Hollow 1D Sphere
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hollow 1D Sphere
+~~~~~~~~~~~~~~~~
 
 Now if we consider a sphere with a hollow inner part whose radius is
 :math:`R_0`, the geometrical decay remains unaffected, but the
@@ -149,3 +152,71 @@ it’s
 The extra two terms :math:`(\frac{2 R_0}{\Sigma_a} + R_0^2)` in the
 hollow case proposes the difficulty for treating the vacuum-crossing
 flights of neutrons in the tallies of incremental migration area.
+
+1D Sphere with 2 Regions
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now if the sphere is solid but has two pure-absorber regions with
+:math:`\Sigma_{ai}` for :math:`0 \leq r \leq R_0` and
+:math:`\Sigma_{ao}` for :math:`r > R_0`. The scalar flux becomes
+
+.. math::
+
+   \label{eq::twoRegions}
+       \phi(r) = 
+        \begin{cases}
+               \frac{S}{4 \pi r^2} e ^ {-\Sigma_{ai}}      & r \leq R_0    \\
+               \frac{S}{4 \pi r^2} e ^ {-\Sigma_{ai} R_0 + \Sigma_{ao} (r-R_0)}  & r > R_0 \\
+       \end{cases}
+
+For :math:`r \leq R_0` the result is just the same as in the simple
+solid sphere case in Equation :eq:`eq::probability`. For the case of
+:math:`r > R_0`, the corresponding :math:`p(r)` and
+:math:`\overline{r^2}` can be computed in the same vein and the results
+are shown as
+
+.. math::
+
+   \begin{aligned}
+       p(r)dr &=  \Sigma_{ao} e^{-\Sigma_{ai} R_0} e^{-\Sigma_a (r-R_0)} dr, \quad r > R_0
+       \\
+       \overline{r^2} &= \int_{0}^{R_0} r^2 p(r, r \leq R_0) dr + \int_{R_0}^{\infty} r^2 p(r, r > R_0) dr 
+                       \\
+                       &= \boxed{ \frac{2}{\Sigma_{ai}^2} +
+                       e^{-\Sigma_{ai} R_0} \Bigg[  
+                       \bigg( \frac{2}{\Sigma_{ao}^2} + \frac{2 R_0}{\Sigma_{ao}} + R_0^2 \bigg) -
+                       \bigg( \frac{2}{\Sigma_{ai}^2} + \frac{2 R_0}{\Sigma_{ai}} + R_0^2 \bigg)
+                       \Bigg] }
+       \end{aligned}
+
+Neutron Diffusion with 2 Regions
+--------------------------------
+
+Now let’s go back to NDE again for the two-region spherical geometry.
+The sphere is solid but has two pure-absorber regions with
+:math:`\Sigma_{ai}, D_{i}` for :math:`0 \leq r \leq R_0` and
+:math:`\Sigma_{ao}, D_{o}` for :math:`r > R_0`. The 1D NDE in spherical
+coordinates is
+
+.. math:: \frac{d^2 \phi(r)}{dr^2} + \frac{2}{r} \frac{d \phi(r)}{dr} - \frac{\phi(r)}{M^2} = 0 \quad (r > 0)
+
+To solve this equation, we can set :math:`u(r) = \phi(r) r`, then it
+becomes
+
+.. math:: \frac{d^2 u(r)}{dr^2} - \frac{u(r)}{M^2} = 0 \quad (r > 0)
+
+The solution is
+
+.. math:: u(r) = C_1 e^{-r/M} + C_2 e^{r/M}
+
+For the inner and outer regions, we will have :math:`M_i^2` and
+:math:`M_o^2` correspondingly. And the expression becomes
+
+.. math::
+
+   \label{}
+       u(r) = 
+        \begin{cases}
+               C_1 e^{-r/M_i} + C_2 e^{r/M_i}      & r \leq R_0    \\
+               C_3 e^{-r/M_o} + C_4 e^{r/M_o}      & r > R_0   \\
+       \end{cases}
