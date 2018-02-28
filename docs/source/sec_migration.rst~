@@ -178,95 +178,16 @@ are shown as
 .. math::
 
    \begin{aligned}
-       p(r)dr &=  \Sigma_{ao} e^{-\Sigma_{ai} R_0} e^{-\Sigma_a (r-R_0)} dr, \quad r > R_0 \\
-       \overline{r^2} &= \int_{0}^{R_0} r^2 p(r, r \leq R_0) dr + \int_{R_0}^{\infty} r^2 p(r, r > R_0) dr \\
+       p(r)dr &=  \Sigma_{ao} e^{-\Sigma_{ai} R_0} e^{-\Sigma_a (r-R_0)} dr, \quad r > R_0
+       \\
+       \overline{r^2} &= \int_{0}^{R_0} r^2 p(r, r \leq R_0) dr + \int_{R_0}^{\infty} r^2 p(r, r > R_0) dr 
+                       \\
                        &= \boxed{ \frac{2}{\Sigma_{ai}^2} +
                        e^{-\Sigma_{ai} R_0} \Bigg[  
                        \bigg( \frac{2}{\Sigma_{ao}^2} + \frac{2 R_0}{\Sigma_{ao}} + R_0^2 \bigg) -
                        \bigg( \frac{2}{\Sigma_{ai}^2} + \frac{2 R_0}{\Sigma_{ai}} + R_0^2 \bigg)
-                       \Bigg] } 
-		       \\
-                       &= \frac{2}{\Sigma_{ai}^2} +
-                       2 e^{-\Sigma_{ai} R_0} \Bigg[  
-                       \bigg( \frac{1}{\Sigma_{ao}^2} + \frac{ R_0}{\Sigma_{ao}} \bigg) -
-                       \bigg( \frac{1}{\Sigma_{ai}^2} + \frac{ R_0}{\Sigma_{ai}} \bigg)
-                       \Bigg]
+                       \Bigg] }
        \end{aligned}
-
-
-1D Slab with 2 Regions
-~~~~~~~~~~~~~~~~~~~~~~
-
-Similar to the 1D sphere case, we should also analyze the case of 1D
-slab with 2 regions (vacuum in the middle or 2 different materials). But
-the direction distribution of source neutrons should be taken special
-care of with 1D slab geometry.
-
-Assuming the neutron source is a point source located at the position
-:math:`x = 0`, and the half width of the inner region (can be vacuum or
-filled with one kind of homogeneous material) is :math:`R_0`. Then for
-any specific source direction :math:`\theta`, the maximum length a
-neutron emitted at this direction can travel within the inner region is
-:math:`r_{max} = L = \frac{R_0}{\mu}` (in which
-:math:`\mu = cos\theta`). It’s natural to get the probability
-distribution function of the distance it traveled before absorption as
-
-.. math::
-
-   \label{eq::pdf_twoRegions_slab}
-       p(r) = 
-        \begin{cases}
-               e ^ {-\Sigma_{ai} r} \Sigma_{ai} dr     & x \leq R_0 \quad (x = r \mu \text{, so equivalent to }r \leq L )  \\
-               e ^ {-\Sigma_{ai} \frac{R_0}{\mu}}  e ^ {-\Sigma_{ao} (r - \frac{R_0}{\mu})} \Sigma_{ao} dr  & x > R_0 \quad (r > L)    \\
-       \end{cases}
-
-So the average of the second moment of the neutron’s flight distance
-until absorption, the quantity proportional to migration area, can be
-computed as (let :math:`L = \frac{R_0}{\mu}`):
-
-.. math::
-
-   \begin{aligned}
-       \overline{r(\mu)^2} &= \int_{0}^{L} r^2 p(r, r \leq L) dr + \int_{L}^{\infty} r^2 p(r, r > L) dr \\
-                       &= \int_{0}^{L} r^2 
-                       \bigg( e ^ {-\Sigma_{ai} r} \Sigma_{ai} \bigg )dr + \int_{L}^{\infty} r^2 
-                       \bigg( e ^ {-\Sigma_{ai} L}  e ^ {-\Sigma_{ao} (r - L)} \Sigma_{ao} \bigg) dr \\
-                       &= \Sigma_{ai} \int_{0}^{L} 
-                       \bigg( r^2 e ^ {-\Sigma_{ai} r}  \bigg )dr + 
-                       e ^ {-\Sigma_{ai} L} \Sigma_{ao} \int_{L}^{\infty} 
-                       \bigg( r^2 e ^ {-\Sigma_{ao} (r - L)}  \bigg) dr \\
-                       &= \frac{2}{\Sigma_{ai}^2} +
-                       e^{-\Sigma_{ai} L} \Bigg[  
-                       \bigg( \frac{2}{\Sigma_{ao}^2} + \frac{2 L}{\Sigma_{ao}} + L^2 \bigg) -
-                       \bigg( \frac{2}{\Sigma_{ai}^2} + \frac{2 L}{\Sigma_{ai}} + L^2 \bigg)
-                       \Bigg] \\
-                       &= \frac{2}{\Sigma_{ai}^2} +
-                       2 e^{-\Sigma_{ai} L} \Bigg[  
-                       \bigg( \frac{1}{\Sigma_{ao}^2} + \frac{ L}{\Sigma_{ao}} \bigg) -
-                       \bigg( \frac{1}{\Sigma_{ai}^2} + \frac{ L}{\Sigma_{ai}} \bigg)
-                       \Bigg]
-       \end{aligned}
-
-Because :math:`L = \frac{R_0}{\mu}`, we need to further integrate the
-expression of :math:`\overline{{r(\mu)}^2}` over :math:`\mu` from 0 to 1
-to get the average of :math:`r^2`. Then it becomes
-
-.. math::
-
-   \begin{aligned}
-       \overline{r^2} &= \int_{0}^{1}\Bigg\{  \frac{2}{\Sigma_{ai}^2} + 
-                       2 e^{-\Sigma_{ai} L} \Bigg[  
-                       \bigg( \frac{1}{\Sigma_{ao}^2} + \frac{ L}{\Sigma_{ao}} \bigg) -
-                       \bigg( \frac{1}{\Sigma_{ai}^2} + \frac{ L}{\Sigma_{ai}} \bigg)
-                       \Bigg] \Bigg\} d\mu \\
-                       &= \int_{0}^{1} \frac{2}{\Sigma_{ai}^2} d\mu +
-                       2 \int_{0}^{1} e^{-\Sigma_{ai} \frac{R_0}{\mu}} \Bigg[  
-                       \bigg( \frac{1}{\Sigma_{ao}^2} + \frac{ \frac{R_0}{\mu}}{\Sigma_{ao}} \bigg) -
-                       \bigg( \frac{1}{\Sigma_{ai}^2} + \frac{ \frac{R_0}{\mu}}{\Sigma_{ai}} \bigg)
-                       \Bigg] d\mu
-       \end{aligned}
-
-
 
 Neutron Diffusion with 2 Regions
 --------------------------------
